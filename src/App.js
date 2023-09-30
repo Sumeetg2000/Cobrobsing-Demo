@@ -1,22 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+// Does'nt work
+// import { CobrowseIO } from "cobrowse-sdk-js";
+
+const CobrowseIO = require("cobrowse-sdk-js");
 
 function App() {
+  CobrowseIO.license = process.env.REACT_APP_COBROWSE_LICENSE;
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Start Your Cobrowsing session by clicking below.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <button className="cobrowsing" onClick={() => CobrowseIO.start()}>Start Cobrowsing Session</button>
       </header>
     </div>
   );
